@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# redirection
+
+sudo apt-get update
+sudo apt-get install -y nginx 
+sudo echo 'Hello World!' | tee /var/www/html/index.html
+sudo vi /etc/nginx/sites-available/default
+sudo nginx -s reload
+sudo sed -i '/server_name _;/a \\n\tlocation /redirect_me/https://www.youtube.com/watch?v=QH2-TGUlwu4
+sudo nginx -t
+service nginx restart
